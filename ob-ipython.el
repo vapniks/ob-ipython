@@ -154,7 +154,7 @@ can be displayed.")
     (format "emacs-%s.json" name)))
 
 (defun ob-ipython--kernel-repl-cmd (name)
-  (list ob-ipython-command "console" "--simple-prompt" "--existing"
+  (list ob-ipython-command "console" "--existing"
         (ob-ipython--kernel-file name)))
 
 ;;; TODO: could setup a default sentinel that outputs error on process
@@ -176,7 +176,7 @@ can be displayed.")
     (ob-ipython--create-process
      (format "kernel-%s" name)
      (append 
-      (list ob-ipython-command "console" "--simple-prompt")
+      (list ob-ipython-command "console")
       (list "-f" (ob-ipython--kernel-file name))
       (if kernel (list "--kernel" kernel) '())
       ;;should be last in the list of args
